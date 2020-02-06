@@ -15,6 +15,8 @@ def make_cars(Saturday, Sunday):
 
     largebooty = []
     smallbooty = []
+    dissapointments = []
+    
     wb = load_workbook('C:\\Users\\ediso\\Desktop\\Dragonboat Spring 2020 Attendance.xlsx')
     ws = wb.active
 
