@@ -5,6 +5,7 @@ from openpyxl import load_workbook
 import facebook
 import datetime
 from datetime import date
+import time
 import smtplib
 from facepy import GraphAPI
 from string import ascii_uppercase
@@ -161,7 +162,10 @@ def make_cars(Saturday, Sunday):
 #graph = facebook.GraphAPI(page_access_token)
 #facebook_page_id = "521974088432565"
 #graph.put_object(facebook_page_id, "feed",  message='Hello world')
-
+global today
+global day
+global nextsat
+global nextsun
 def what_fucking_day_is_it():
     today = date.today()
     week_days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -177,9 +181,15 @@ def what_fucking_day_is_it():
         nextsun = today + datetime.timedelta(6-day)
         print("Next Saturday is: ", nextsat)
         print("Next Sunday is: ", nextsun)
-
+def judgement_time():
+    current_time = time.strftime("%H:%M:%S")
+    post_time = "00:00:00"
+    nextfri = today + datetime.timedelta(4-day)
+    if(today == nextfri and current_time == post_time):
+        Brianna_Wants_To_Be_Emailed_Instead()
 def Brianna_Wants_To_Be_Emailed_Instead():
-    make_cars('2020-02-08', '2020-02-09')
+    what_fucking_day_is_it()
+    make_cars(nextsat, nextsun)
     # creates SMTP session
     s = smtplib.SMTP('smtp.gmail.com', 587)
 
@@ -214,6 +224,7 @@ def Brianna_Wants_To_Be_Emailed_Instead():
 
 def main():
     #make_cars('2020-02-08', '2020-02-09')
-    what_fucking_day_is_it()
-    Brianna_Wants_To_Be_Emailed_Instead()
+    #what_fucking_day_is_it()
+    #Brianna_Wants_To_Be_Emailed_Instead()
+    judgement_time()
 main()
