@@ -188,7 +188,7 @@ def Brianna_Wants_To_Be_Emailed_Instead():
     s.ehlo()
 
     # Authentication
-    s.login("edisonsiu8899@gmail.com", "Edisonsiu8899889988")
+    s.login("usc.dragonboat@gmail.com", "fightforgold")
 
     # message to be sent
     #message = "Hello Brianna, \n    This is a test"
