@@ -1,3 +1,4 @@
+from Download_Attendance_Sheet import name
 import string
 import random
 from openpyxl import load_workbook
@@ -17,7 +18,7 @@ def make_cars(Saturday, Sunday):
     smallbooty = []
     dissapointments = []
     
-    wb = load_workbook('C:\\Users\\ediso\\Desktop\\Dragonboat Spring 2020 Attendance.xlsx')
+    wb = load_workbook(name + '.xlsx')
     ws = wb.active
 
     alphabet = list(string.ascii_uppercase)
