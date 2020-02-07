@@ -205,7 +205,8 @@ def Brianna_Wants_To_Be_Emailed_Instead():
     print(message)
     # sending the mail
     #s.sendmail("edisonsiu8899@gmail.com", "sunb@usc.edu", message)
-    s.sendmail("edisonsiu8899@gmail.com", "edisonsiu8899@gmail.com", message)
+    #s.sendmail("edisonsiu8899@gmail.com", "edisonsiu8899@gmail.com", message)
+    s.sendmail("usc.dragonboat@gmail.com", "sunb@usc.edu", message)
 
     # terminating the session
     s.quit()
