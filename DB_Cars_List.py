@@ -454,32 +454,47 @@ def make_cars(Saturday, Sunday):
             if (i == j):
                 sun_cars_leaving_early[j] = sun_cars_going[i]
 
+    Need_Maven_Sat = False
+    Need_Maven_Sun = False
     print("Saturday Regular Going:", sat_cars_going_reg)
     print("Saturday KG Going:", sat_cars_going_KG)
     print("Saturday Regular Leaving:", sat_cars_leaving_reg)
     print("Saturday Early Leaving:", sat_cars_leaving_early)
+    if(len(maven_sat) > 0):
+        print("Need a Maven for Saturday")
+        Need_Maven_Sat = True
     print("\n")
     print("Sunday Regular Going:", sun_cars_going_reg)
     print("Sunday KG Going:", sun_cars_going_KG)
     print("Sunday Regular Leaving:", sun_cars_leaving_reg)
     print("Sunday Early Leaving:", sun_cars_leaving_early)
+    if(len(maven_sun) > 0):
+        print("Need a Maven for Saturday")
+        Need_Maven_Sun = True
     print("\n")
 
     return("Saturday Regular Going:", sat_cars_going_reg,
            "\nSaturday KG Going:", sat_cars_going_KG,
            "\nSaturday Regular Leaving:", sat_cars_leaving_reg,
            "\nSaturday Early Leaving:", sat_cars_leaving_early,
+           "Need Maven =", Need_Maven_Sat,
            "\n",
            "\nSunday Regular Going:", sun_cars_going_reg,
            "\nSunday KG Going:", sun_cars_going_KG,
            "\nSunday Regular Leaving:", sun_cars_leaving_reg,
-           "\nSunday Early Leaving:", sun_cars_leaving_early)
+           "\nSunday Early Leaving:", sun_cars_leaving_early,
+           "Need Maven =", Need_Maven_Sat)
 
-global today
-global day
-global nextsat
-global nextsun
+today = date.today()
+day = datetime.datetime.today().weekday()
+nextsat = today + datetime.timedelta(5-day)
+nextsun = today + datetime.timedelta(6-day)
+
 def what_fucking_day_is_it():
+    global today
+    global day
+    global nextsat
+    global nextsun
     today = date.today()
     day = datetime.datetime.today().weekday()
     week_days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
